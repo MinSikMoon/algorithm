@@ -1,4 +1,5 @@
 package heap.basic;
+import java.util.NavigableSet;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -19,7 +20,7 @@ class Jewel implements Comparable<Jewel>{
 			return 0;
 		}else if(this.price < j.price){
 			return 1;
-		}else if(this.price == j.price && this.weight < j.weight){
+		}else if(this.price == j.price && this.weight > j.weight){
 			return 1;
 		}
 		
@@ -47,18 +48,23 @@ public class JewelAndSack1202 {
 			jewelHeap.add(new Jewel(i, tempWeight, tempPrice));
 		}
 		
-	/*	for(Jewel j:jewelHeap){
+		for(Jewel j:jewelHeap){
 			System.out.println(j.index + ", " + j.weight + ", " + j.price);
-		}*/
+		}
+		
 		//3. 가방 한계 무게 입력받기
 		for(int i=0; i<sackNum; i++){
 			sackWeightHeap.add(keyboard.nextInt());
 		}
-		
+		//내림차순 만들기
+		NavigableSet<Integer> sackDescending = sackWeightHeap.descendingSet();
+		/*for(int s : sackDescending){
+			System.out.println(s);
+		}*/
 		
 		//4. 로직
 		//내림 차순 가격으로 정리되었으므로 하나씩 내려가면서 무게를 대조한다.
-		for(int sackWeight : sackWeightHeap){
+		for(int sackWeight : sackDescending){
 			for(Jewel j : jewelHeap){
 				if(j.weight <= sackWeight){
 					resultPriceSum += j.price;
