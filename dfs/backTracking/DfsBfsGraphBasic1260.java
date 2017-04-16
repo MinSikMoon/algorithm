@@ -10,7 +10,7 @@ public class DfsBfsGraphBasic1260 {
 	static int[][] pathArr, copiedArr;
 	static boolean[] isVisited;
 	//members: bfs
-	static Queue<Integer> fromQ, toQ;
+	static Queue<Integer> toQ;
 	//method1 : dfs
 	static void dfs(int curEdge, int[][] pathArr){
 		//1. 방문기록한다.
@@ -38,7 +38,6 @@ public class DfsBfsGraphBasic1260 {
 				if(!isVisited[curEdge])
 					break;
 			}
-			
 			isVisited[curEdge] = true;
 			System.out.print(curEdge + " ");
 			for(int to=1; to<=edgeNum; to++){
@@ -50,9 +49,6 @@ public class DfsBfsGraphBasic1260 {
 			}
 			visitCnt++;
 		}
-		
-		
-		
 	}
 	
 	
@@ -65,7 +61,6 @@ public class DfsBfsGraphBasic1260 {
 		copiedArr = new int[edgeNum+1][edgeNum+1]; //0으로 자동초기화
 		isVisited = new boolean[edgeNum+1]; //false로 자동초기화
 		
-		fromQ = new LinkedList<>();
 		toQ = new LinkedList<>();
 		
 		for(int i=0; i<pathNum; i++){
@@ -83,8 +78,4 @@ public class DfsBfsGraphBasic1260 {
 		bfs(startEdge, copiedArr);
 		
 	}
-	
-	
-	
-	
 }
