@@ -4,9 +4,9 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 
-class point{
+class pt{
 	public int r,c;
-	public point(int r, int c){
+	public pt(int r, int c){
 		this.r = r;
 		this.c = c;
 	}
