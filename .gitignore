@@ -1,4 +1,4 @@
 ﻿.classpath
 .settings
 .project
-.class
+*.class
